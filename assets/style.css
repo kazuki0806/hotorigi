@@ -275,8 +275,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .about1 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .about1__left { padding-left: var(--inset-classic); }
-.about1__photo { width: calc(100% + 40px); max-width: none; margin-top: var(--spacing-4); }
-.about1__right { padding-left: 50px; padding-right: var(--spacing-side); display: flex; flex-direction: column; gap: var(--spacing-3); }
+.about1__photo { width: 100%; margin-top: var(--spacing-4); }
+.about1__right { padding-left: 80px; padding-right: var(--spacing-side); display: flex; flex-direction: column; gap: var(--spacing-3); }
 .about1__right > * { max-width: var(--column-text); }
 .about1__keys { color: var(--color-text-muted); }
 .nums1 { display: flex; flex-wrap: wrap; gap: 24px 32px; padding: 16px 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
@@ -311,7 +311,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .onsen1__left { padding-left: var(--inset-classic); display: flex; flex-direction: column; gap: var(--spacing-3); }
 .onsen1__left > * { max-width: 400px; }
 .onsen1__left .body { margin-top: var(--spacing-4); }
-.onsen1__right { padding-left: 24px; padding-right: var(--spacing-side); }
+.onsen1__right { padding-left: 80px; padding-right: var(--spacing-side); }
 .onsen1__photo { width: 100%; }
 .spec { display: flex; flex-direction: column; border-top: 1px solid var(--color-line); }
 .spec__row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--color-line); }
@@ -342,8 +342,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .access1__right .spec { max-width: var(--column-text); }
 
 .company1 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.company1__photo { width: calc(100% + 40px); max-width: none; margin-top: var(--spacing-4); }
-.company1__right { padding-left: 50px; padding-right: var(--spacing-side); }
+.company1__photo { width: 100%; margin-top: var(--spacing-4); }
+.company1__right { padding-left: 80px; padding-right: var(--spacing-side); }
 .company1__right .spec { max-width: var(--column-text); }
 
 .marquee { overflow: hidden; height: 399px; display: flex; align-items: center; }

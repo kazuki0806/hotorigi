@@ -19,10 +19,32 @@ Webデザインの作例として作った、温泉旅館の公式サイトの�
 ## 中身
 
 - `index.html` … トップページ本体
+- `404.html` … 見つからないページ
 - `assets/style.css` … 色・書体・余白のトークンと、全セクションのスタイル
 - `assets/main.js` … GSAP の初期化、メニューの開閉、写真の切り抜き
 - `assets/gsap.min.js`, `assets/ScrollTrigger.min.js` … GSAP 3.13.0（cdnjs から取得）
-- `images/` … 仮の写真11枚
+- `images/` … 仮の写真11枚（WebP）と、シェア用の画像 `ogp.jpg`
+- `robots.txt`, `sitemap.xml`, `site.webmanifest`, ファビコン一式
+
+## リリース前チェックリストの結果
+
+社内のチェックリスト48項目で確認し、追加素材なしで直せるものは直しました。
+
+対応済みの項目は、meta title と description、canonical、robots.txt、sitemap.xml、html lang、JSON-LD（Organization と BreadcrumbList）、OGP一式と Twitter カード、1200×630のシェア画像、ファビコン（ico・32・16・180・192・512）、theme-color、site.webmanifest、画像のWebP化、ファーストビュー外の遅延読込、imgのwidth/height明示、375pxと1440pxでの表示確認、alt、コントラスト比、見出し階層（h1は1つ、飛ばしなし）、CSSとJSの外部ファイル化、セマンティックHTML、SSLとHTTPSの強制、内部リンクのチェック、ダミーテキストなし、コピーライトの年号、404ページ、環境変数（APIキーなし）です。
+
+未対応の項目と、その理由は次のとおりです。
+
+| 項目 | 理由 |
+| --- | --- |
+| noindex | 架空の宿なので、検索結果に出さないよう意図的に noindex にしています（チェックリストの index とは逆） |
+| GA4・Search Console・コンバージョン計測 | 本番の測定IDと所有権確認が必要。テスト用IDを入れるのはチェックリスト自身が禁じているため入れていません |
+| フォームの送信先・到達確認 | この作例に問い合わせフォームはありません |
+| プライバシーポリシー・宿泊約款・キャンセルについて | 下層ページを作っていないため、フッターのリンクは飛び先なしです |
+| 特商法・Cookie同意 | 販売行為と計測がないため対象外です |
+| Lighthouse・Core Web Vitals | 手元に計測ツールがなく、数値を確認していません |
+| シェア表示の確認 | X・Facebook のデバッガーはログインが必要なため未確認です |
+
+なお `robots.txt` は、GitHub Pages のプロジェクトページではドメイン直下のものだけが読まれるため、この場所では効きません。検索避けは各ページの noindex で行っています。
 
 ## 写真について
 
@@ -30,17 +52,17 @@ Webデザインの作例として作った、温泉旅館の公式サイトの�
 
 | ファイル | 撮影者 | 元ページ |
 | --- | --- | --- |
-| hero.jpg | Valentin | https://unsplash.com/photos/ufjI0V-mtoc |
-| about.jpg | Andy Arbeit | https://unsplash.com/photos/EaEjg1dd1xU |
-| room-sawa.jpg | Yosuke Ota | https://unsplash.com/photos/TeNtfZuCWe8 |
-| room-mori.jpg | Anton Sobotyak | https://unsplash.com/photos/VPFi-s-xyXU |
-| dining.jpg | Adam Mills | https://unsplash.com/photos/SHFQI_DGgAU |
-| onsen.jpg | Kris Tian | https://unsplash.com/photos/yyDKLnY2M6s |
-| biz-retreat.jpg | Yosuke Ota | https://unsplash.com/photos/OYR2mPD3yRY |
-| biz-workation.jpg | EFFYDESK | https://unsplash.com/photos/UhzeAgXvGSs |
-| biz-shooting.jpg | Ingmar | https://unsplash.com/photos/R9tPheZuGnA |
-| stream.jpg | Brice Cooper | https://unsplash.com/photos/KeZT-1Inl8U |
-| hallway.jpg | 5010 | https://unsplash.com/photos/M9Y8SeVpH1E |
+| hero | Valentin | https://unsplash.com/photos/ufjI0V-mtoc |
+| about | Andy Arbeit | https://unsplash.com/photos/EaEjg1dd1xU |
+| room-sawa | Yosuke Ota | https://unsplash.com/photos/TeNtfZuCWe8 |
+| room-mori | Anton Sobotyak | https://unsplash.com/photos/VPFi-s-xyXU |
+| dining | Adam Mills | https://unsplash.com/photos/SHFQI_DGgAU |
+| onsen | Kris Tian | https://unsplash.com/photos/yyDKLnY2M6s |
+| biz-retreat | Yosuke Ota | https://unsplash.com/photos/OYR2mPD3yRY |
+| biz-workation | EFFYDESK | https://unsplash.com/photos/UhzeAgXvGSs |
+| biz-shooting | Ingmar | https://unsplash.com/photos/R9tPheZuGnA |
+| stream | Brice Cooper | https://unsplash.com/photos/KeZT-1Inl8U |
+| hallway | 5010 | https://unsplash.com/photos/M9Y8SeVpH1E |
 
 ## 見るには
 
