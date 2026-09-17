@@ -92,7 +92,7 @@
         if (!items.length) { return; }
         gsap.to(items, {
           opacity: 1, y: 0, duration: 1, ease: 'power1.out', stagger: 0.1,
-          scrollTrigger: { trigger: group, start: 'top 80%', once: true }
+          scrollTrigger: { trigger: group, start: 'top 80%', toggleActions: 'play none none none' }
         });
       });
 
@@ -163,6 +163,21 @@
         }
       });
     }
+
+    window.__revealReady = true;
+
+    // Turn on smooth scrolling only after load, and jump to #section once (a smooth jump that starts
+    // before ScrollTrigger's first refresh gets reset to the top).
+    var settle = function () {
+      ScrollTrigger.refresh();
+      if (location.hash.length > 1) {
+        var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) { window.scrollTo(0, target.getBoundingClientRect().top + window.pageYOffset); }
+      }
+      document.documentElement.classList.add('is-smooth');
+    };
+    if (document.readyState === 'complete') { window.setTimeout(settle, 0); }
+    else { window.addEventListener('load', settle, { once: true }); }
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () { ScrollTrigger.refresh(); });

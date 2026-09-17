@@ -151,8 +151,10 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html { -webkit-text-size-adjust: 100%; }
+/* smooth scrolling is switched on after load (see init.js) so ScrollTrigger's first refresh does not fight a #hash jump */
+html.is-smooth { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html.is-smooth { scroll-behavior: auto; } }
 body {
   margin: 0;
   background: var(--color-bg);
@@ -245,10 +247,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .endcap { margin: 0 var(--spacing-side); padding: 40px 0 64px; border-top: 1px solid var(--color-line); color: var(--color-text-muted); text-align: center; }
 
+/* pre-hide only while the motion layer is expected (guard.js adds .js-motion and removes it after 2.5s if the motion layer never reports in) */
 @media (prefers-reduced-motion: no-preference) {
-  [data-site] .js-intro, [data-site] .js-reveal { opacity: 0; }
-  [data-site] [data-clip] { clip-path: inset(0 var(--hero-clip)); }
-  [data-site] [data-line] { transform: scaleY(0); transform-origin: top; }
+  .js-motion [data-site] .js-intro, .js-motion [data-site] .js-reveal { opacity: 0; }
+  .js-motion [data-site] [data-clip] { clip-path: inset(0 var(--hero-clip)); }
+  .js-motion [data-site] [data-line] { transform: scaleY(0); transform-origin: top; }
 }
 
 .site.is-on-dark .logo, .site.is-on-dark .menu-btn, .site.is-on-dark .nav-classic a, .site.is-on-dark .nav-mud a, .site.is-on-dark .nav-mud__ja, .site.is-on-dark .hdr-reserve, .site.is-logo-on-dark .logo { color: var(--color-text-inverse); transition: color var(--dur-ui) var(--ease-soft); }
